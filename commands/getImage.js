@@ -1,11 +1,12 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
-import { status } from "./status.js"; 
+import chalk from 'chalk'
 
-
-export function getImage(commitId) {
+function handler(args) {
     //check if the current entry is a valid pathname or not
     //then create its entry into the index file
+    const commitId = args._[1];
+    // console.log(args);
     const currentDir = cwd();
     console.log(currentDir);
     try {
@@ -36,3 +37,19 @@ export function getImage(commitId) {
     }
 
 }
+function builder(yargs) {
+    return yargs
+    .option('commitId', {
+        alias: 'cId',
+        describe: 'commitId of commit to restore',
+        type: 'string'
+    });
+}
+const getImage = {
+    command: 'getImage',
+    describe: 'bring your working directory to the state it had been during a specific commit. Files that were not present during that commit or were untracked, would not be affected in any manner.',
+    builder,
+    handler
+}
+
+export default getImage;

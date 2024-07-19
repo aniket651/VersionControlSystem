@@ -1,12 +1,12 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
-import { status } from "./status.js"; 
 import { error } from "console";
+import chalk from 'chalk'
 
-
-export function gotoBranch(branchName) {
+function handler(args) {
     //check if the current entry is a valid pathname or not
     //then create its entry into the index file
+    const branchName = args._[1];
     const currentDir = cwd();
     console.log(currentDir);
     try {
@@ -39,3 +39,19 @@ export function gotoBranch(branchName) {
     }
 
 }
+function builder(yargs) {
+    return yargs
+    .option('branchName', {
+        alias: 'br',
+        describe: 'branch name of an existing branch where u want to checkout to',
+        type: 'string'
+    });
+}
+const checkout = {
+    command: 'checkout',
+    describe: 'checkout to an existing branch.',
+    builder,
+    handler
+}
+
+export default checkout;
