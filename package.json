@@ -1,7 +1,7 @@
 {
-  "name": "version-control-system",
+  "name": "witness",
   "version": "1.0.0",
-  "description": "",
+  "description": "this is an attemp to make a simple version control system called Witness. Its based on popular vsc git.\nThis project doesn't use git porceilien and plumbing commands but rather approaches the problem at hand from scatch in NodeJs.",
   "bin": {
     "witness": "bin/index.js"
   },
