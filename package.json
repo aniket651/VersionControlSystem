@@ -8,9 +8,7 @@
   "main": "bin/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "node prepublish.js && tsc",
-    "release": "cross-env RELEASE_MODE=true np --no-tests"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "aniket pandey",
   "license": "ISC",
