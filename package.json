@@ -1,9 +1,9 @@
 {
-  "name": "witness",
-  "version": "1.0.0",
+  "name": "witness-a-vcs",
+  "version": "1.0.4",
   "description": "this is an attemp to make a simple version control system called Witness. Its based on popular vsc git.\nThis project doesn't use git porceilien and plumbing commands but rather approaches the problem at hand from scatch in NodeJs.",
   "bin": {
-    "witness": "bin/index.js"
+    "witness": "./bin/index.js"
   },
   "main": "bin/index.js",
   "type": "module",
@@ -16,9 +16,5 @@
     "chalk": "^5.3.0",
     "crypto": "^1.0.1",
     "yargs": "^17.7.2"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "np": "^10.0.7"
   }
 }
