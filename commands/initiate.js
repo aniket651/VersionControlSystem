@@ -3,13 +3,18 @@ import chalk from 'chalk'
 import { existsSync, writeFileSync, mkdirSync } from "fs";
 import { cwd } from 'process';
 
+
+
+
+
+
 function handler() {
 
     const currentDir = cwd();
 
     console.log(currentDir);
     if (existsSync(`${currentDir}/.witness`)) {
-        console.log("witness has already been activated !")
+        console.log(chalk.blue("witness has already been activated !"))
         return;
     }
 
@@ -32,7 +37,7 @@ function handler() {
         writeFileSync(`${currentDir}/.witness/index.json`, "{}");
         writeFileSync(`${currentDir}/.ignorewit.json`, "[]")
     } catch (error) {
-        console.error('Error in creating witness and sub-directories', error);
+        console.error(chalk.red('Error in creating witness and sub-directories'), error);
 
     }
 

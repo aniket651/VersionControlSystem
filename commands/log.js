@@ -7,17 +7,17 @@ function handler() {
     //check if the current entry is a valid pathname or not
     //then create its entry into the index file
     const currentDir = cwd();
-    console.log(currentDir);
+    // console.log(currentDir);
     try {
         const state = (JSON.parse(readFileSync(`${currentDir}/.witness/State.json`, 'utf-8')));
         let currentCommit;
         if(state["detached"]){
             currentCommit = state["head"];
-            console.log("detached Head state");
+            console.log(chalk.yellow("detached Head state"));
         }
         else{
             const branchName = state["head"];
-            console.log("current branch: ", branchName);
+            console.log(chalk.dim("current branch: "), chalk.green(branchName));
             const branchHeads = JSON.parse(readFileSync(`${currentDir}/.witness/refs/branchHead.json`, 'utf-8'));
             currentCommit = branchHeads[branchName];
         }
@@ -34,11 +34,11 @@ function handler() {
         
         console.log(history);
         if(currentCommit){
-            console.log("branch merging before this last commit")
+            console.log(chalk.cyan("branch merging before this last commit"))
         }
 
     } catch (error) {
-        console.log("error in fetching witness history", error);
+        console.log(chalk.red("error in fetching witness history"), error);
     }
 
 }

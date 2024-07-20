@@ -7,7 +7,7 @@ export function handler() {
     //check if the current entry is a valid pathname or not
     //then create its entry into the index file
     const currentDir = cwd();
-    console.log(currentDir);
+    // console.log(currentDir);
 
     try {
 
@@ -39,7 +39,7 @@ export function handler() {
 
 
     } catch (error) {
-        console.log("error in updating index", error);
+        console.log(chalk.red("error in updating index"), error);
     }
 
 }

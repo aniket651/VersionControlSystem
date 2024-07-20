@@ -7,7 +7,7 @@ function handler(args) {
     //check if the current entry is a valid pathname or not
     //then create its entry into the index file
     const currentDir = cwd();
-    console.log(currentDir);
+    // console.log(currentDir);
     // console.log(args)
     const msg = args._[1];
     try {
@@ -59,7 +59,7 @@ function handler(args) {
 
 
     } catch (error) {
-        console.log("error in commiting", error);
+        console.log(chalk.red("error in commiting"), error);
     }
 
 }

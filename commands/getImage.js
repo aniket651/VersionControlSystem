@@ -8,7 +8,7 @@ function handler(args) {
     const commitId = args._[1];
     // console.log(args);
     const currentDir = cwd();
-    console.log(currentDir);
+    // console.log(currentDir);
     try {
         const history = JSON.parse(readFileSync(`${currentDir}/.witness/history/commitLog.json`, 'utf-8'));
         if(!history[commitId]){
@@ -33,7 +33,7 @@ function handler(args) {
 
 
     } catch (error) {
-        console.log("error in getting the commit verion: ", error);
+        console.log(chalk.red("error in getting the commit verion: "), error);
     }
 
 }

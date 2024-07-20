@@ -8,7 +8,7 @@ function handler(args) {
     //then create its entry into the index file
     const branchName = args._[1];
     const currentDir = cwd();
-    console.log(currentDir);
+    // console.log(currentDir);
     try {
         const branchHeads = (JSON.parse(readFileSync(`${currentDir}/.witness/refs/branchHead.json`, 'utf-8')));
         if(!branchHeads[branchName]){
@@ -35,7 +35,7 @@ function handler(args) {
         writeFileSync(`${currentDir}/.witness/index.json`,JSON.stringify(indexObj));
 
     } catch (error) {
-        console.log("error in getting the commit verion: ", error);
+        console.log(chalk.red("error in checking out to mentioned branch "), error);
     }
 
 }

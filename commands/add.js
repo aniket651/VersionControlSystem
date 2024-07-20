@@ -9,7 +9,7 @@ function handler(args) {
     //then create its entry into the index file
     const { files, all } = args
     const currentDir = cwd();
-    console.log(currentDir);
+    // console.log(currentDir);
     // console.log(args);
     // console.log("files :",files);
     // console.log("all :",all);
@@ -34,14 +34,14 @@ function handler(args) {
                 Object.assign(indexObj,{...indexObj,...partIndex});
             }
             else {
-                console.log(`${path} is not found in current working directory`);
+                console.log(chalk.red(`${path} is not found in current working directory`));
             }
         }
 
         writeFileSync(`${currentDir}/.witness/index.json`, JSON.stringify(indexObj));
 
     } catch (error) {
-        console.log("error in updating index", error);
+        console.log(chalk.red("error in updating index"), error);
     }
 
 }
