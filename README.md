@@ -1,7 +1,8 @@
 ## To install
 ###### 1. clone the repo
-###### 2. go to root directory of project and run `npm install -g .`
+###### 2. go to root directory of project and run `npm update` and then `npm install -g .`
 
+##### its better to use bash terminals on windows :)
 
 this is an attemp to make a simple version control system called Witness.
 Its based on popular vsc "git". Its a fun learning project and has helped me in learning about git internals, object databases and linux filesystems.
