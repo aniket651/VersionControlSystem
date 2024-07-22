@@ -13,11 +13,35 @@ export function isDirectory(path) {
     }
 }
 
+function isFile(path){
+    try {
+        const stats = statSync(path);
+        return stats.isFile();
+    } catch (error) {
+        return false;
+    }
+}
+
 
 export function updateIndexSync(directoryPath, ignoreArr) {
     try {
-        const files = readdirSync(directoryPath); // Get list of filenames
+        let files;
         let fileDetails = {};
+        if(isFile(directoryPath)){
+            try {
+                accessSync(directoryPath, constants.R_OK | constants.W_OK)
+                const content = readFileSync(directoryPath, 'utf8');
+                const hash = getHash("file", content);
+                fileDetails[`${directoryPath}`] = hash;
+                return fileDetails;
+            } catch (error) {
+                // console.log("error in accessSync");
+                // console.log(error);
+                return fileDetails;
+            }
+        }
+        files = readdirSync(directoryPath); // Get list of filenames
+        
 
         for (const filename of files) {
             if (filename === ".witness") {

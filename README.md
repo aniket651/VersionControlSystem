@@ -23,3 +23,38 @@ Its in beginner stages only and is yet to support branching and merging.
 ### Options:
 ##### --version  : Show version number                                       [boolean]
 ##### --help    : Show help                                                 [boolean]
+
+## Images:
+![](2024-07-22-16-59-42.png)
+
+#### init
+![](2024-07-22-17-02-57.png)
+
+### .ignorewit File
+put path of files and folders to not be included in the tracking. enter the paths as string in the array. seperate two entries by a "," inside the array.
+![](2024-07-22-17-10-19.png)
+
+### status:
+![](2024-07-22-17-12-45.png)
+
+### adding files to staging area:
+![](2024-07-22-20-54-06.png)
+
+### commiting and checking commit history
+![](2024-07-22-20-56-45.png)
+
+### detached head state
+changed content of Doc1 and commited:
+![](2024-07-22-21-06-19.png)
+
+after 2nd commit Doc1 looks like:
+![](2024-07-22-21-07-58.png)
+
+using commitId of first commit, we will try to restore the state of directory to first commit:
+commitId of first commit can be seen in witness log
+
+![](2024-07-22-21-12-58.png)
+
+### moving from detached head state back to a branch head
+![](2024-07-22-21-15-20.png)
+
