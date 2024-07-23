@@ -19,7 +19,7 @@ function handler(args) {
 
         for(const filePath in indexObj){
             const hash = indexObj[filePath];
-            const data = readFileSync(`${currentDir}/.witness/objects/${hash}`, 'utf-8');
+            const data = readFileSync(`${currentDir}/.witness/objects/${hash}`);
             writeFileSync(filePath,data);
         }
         //update index.json file

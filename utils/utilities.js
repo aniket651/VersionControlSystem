@@ -30,7 +30,7 @@ export function updateIndexSync(directoryPath, ignoreArr) {
         if(isFile(directoryPath)){
             try {
                 accessSync(directoryPath, constants.R_OK | constants.W_OK)
-                const content = readFileSync(directoryPath, 'utf8');
+                const content = readFileSync(directoryPath);
                 const hash = getHash("file", content);
                 fileDetails[`${directoryPath}`] = hash;
                 return fileDetails;
@@ -60,7 +60,7 @@ export function updateIndexSync(directoryPath, ignoreArr) {
             else {
                 try {
                     accessSync(filePath, constants.R_OK | constants.W_OK)
-                    const content = readFileSync(filePath, 'utf8');
+                    const content = readFileSync(filePath);
                     const hash = getHash("file", content);
                     fileDetails[`${filePath}`] = hash;
                 } catch (error) {
@@ -96,7 +96,7 @@ export function statusUpdateSync(directoryPath, untrackedFiles, modifiedFiles, i
             else if (filePath in indexObj) {
                 try {
                     accessSync(filePath, constants.R_OK | constants.W_OK)
-                    const content = readFileSync(filePath, 'utf8');
+                    const content = readFileSync(filePath);
                     const hash = getHash("file", content);
                     if (!(hash === indexObj[filePath])) {
                         modifiedFiles.push(filePath);

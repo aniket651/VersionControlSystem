@@ -29,7 +29,7 @@ function handler(args) {
         const indexObj = JSON.parse(readFileSync(`${currentDir}/.witness/indices/${commitId}.json`, 'utf-8'));
         for(const filePath in indexObj){
             const hash = indexObj[filePath];
-            const data = readFileSync(`${currentDir}/.witness/objects/${hash}`, 'utf-8');
+            const data = readFileSync(`${currentDir}/.witness/objects/${hash}`);
             writeFileSync(filePath,data);
         }
         writeFileSync(`${currentDir}/.witness/index.json`,JSON.stringify(indexObj));

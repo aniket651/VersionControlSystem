@@ -18,7 +18,7 @@ function handler(args) {
         for(const filePath in indexObj){
             // console.log(filePath);
             if(!existsSync(`${currentDir}/.witness/objects/${indexObj[filePath]}`)){
-                const data = readFileSync(filePath,'utf-8');
+                const data = readFileSync(filePath);
                 writeFileSync(`${currentDir}/.witness/objects/${indexObj[filePath]}`,data);
             }
         }
