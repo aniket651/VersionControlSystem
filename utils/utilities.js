@@ -1,8 +1,9 @@
 
 import { cwd } from 'process';
-import { statSync, readdirSync, readFileSync, accessSync, constants, writeFileSync} from "fs";
+import { existsSync,statSync, readdirSync, readFileSync, accessSync, constants, writeFileSync} from "fs";
 import path from 'path';
 import { createHash } from 'crypto';
+import chalk from 'chalk';
 
 export function isDirectory(path) {
     try {
@@ -128,6 +129,12 @@ export function getHash(type, content) {
     }
 }
 
+export function hasInitiated(path){
+    if (!existsSync(`${path}/.witness`)) {
+        console.log(chalk.red("witness has not been initialized!. Initialize it first using init command"));
+        throw new Error("witness has not been initialized!");
+    }
+}
 
 // Example usage
 const currentPath = process.cwd();

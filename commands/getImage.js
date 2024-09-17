@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
+import { hasInitiated } from "../utils/utilities.js";
 import chalk from 'chalk'
 
 function handler(args) {
@@ -10,6 +11,7 @@ function handler(args) {
     const currentDir = cwd();
     // console.log(currentDir);
     try {
+        hasInitiated(currentDir);
         const history = JSON.parse(readFileSync(`${currentDir}/.witness/history/commitLog.json`, 'utf-8'));
         if(!history[commitId]){
             throw error("no such commitId present!!");

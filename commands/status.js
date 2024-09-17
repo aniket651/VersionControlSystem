@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
-import { statusUpdateSync} from "../utils/utilities.js";
+import { statusUpdateSync, hasInitiated} from "../utils/utilities.js";
 import chalk from 'chalk'
 
 export function handler() {
@@ -10,7 +10,7 @@ export function handler() {
     // console.log(currentDir);
 
     try {
-
+        hasInitiated(currentDir);
         const indexObj = JSON.parse(readFileSync(`${currentDir}/.witness/index.json`, 'utf-8'));
         const untrackedFiles = [];
         const modifiedFiles = [];

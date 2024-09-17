@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
-import { updateIndexSync } from "../utils/utilities.js";
+import { updateIndexSync, hasInitiated } from "../utils/utilities.js";
 // import { CommandModule, Argv } from 'yargs'
 import chalk from 'chalk'
 
@@ -16,6 +16,7 @@ function handler(args) {
 
 
     try {
+        hasInitiated(currentDir);
         let ignoreArr = JSON.parse(readFileSync(`${currentDir}/.ignorewit.json`, 'utf-8'));
         ignoreArr = ignoreArr.map((e)=>`${currentDir}/${e}`);
         // console.log(ignoreArr);

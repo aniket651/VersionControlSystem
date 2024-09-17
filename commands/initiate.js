@@ -22,8 +22,8 @@ function handler() {
         mkdirSync(`.witness`);
         mkdirSync(`.witness/objects`);
         mkdirSync(`.witness/indices`);
-        mkdirSync(`.witness/hooks`);
-        mkdirSync(`.witness/info`);
+        // mkdirSync(`.witness/hooks`);
+        // mkdirSync(`.witness/info`);
         mkdirSync(`.witness/refs`);
         mkdirSync(`.witness/history`);
         const obj = {

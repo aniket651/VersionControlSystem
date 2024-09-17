@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
 import { handler as statusHandler} from "./status.js"; 
+import { hasInitiated } from "../utils/utilities.js";
 import chalk from 'chalk'
 
 function handler(args) {
@@ -11,6 +12,7 @@ function handler(args) {
     // console.log(args)
     const msg = args._[1];
     try {
+        hasInitiated(currentDir);
         statusHandler();
         const indexObj = JSON.parse(readFileSync(`${currentDir}/.witness/index.json`, 'utf-8'));
         const commitId = Date.now();

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { cwd } from 'process';
 import { error } from "console";
+import { hasInitiated } from "../utils/utilities.js";
 import chalk from 'chalk'
 
 function handler(args) {
@@ -10,6 +11,7 @@ function handler(args) {
     const currentDir = cwd();
     // console.log(currentDir);
     try {
+        hasInitiated(currentDir);
         const branchHeads = (JSON.parse(readFileSync(`${currentDir}/.witness/refs/branchHead.json`, 'utf-8')));
         if(!branchHeads[branchName]){
             throw error("branch name not in exixtence!!");
